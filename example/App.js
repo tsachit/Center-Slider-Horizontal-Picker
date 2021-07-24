@@ -8,7 +8,7 @@ import {
   Text,
   FlatList
 } from 'react-native';
-import { HorizontalSliderPicker } from '../'
+import { HorizontalSliderPicker } from 'center-slider-horizontal-picker'
 
 
 
