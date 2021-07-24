@@ -1,0 +1,27 @@
+{
+  "name": "center-slider-horizontal-picker",
+  "version": "1.0.0",
+  "description": "its a slider horizontal picker when center selecting item",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zafeerhashir/Center-Slider-Horizontal-Picker.git"
+  },
+  "keywords": [
+    "horizontal-slider-picker",
+    "horizontal-picker",
+    "center-slider-horizontal-picker"
+  ],
+  "author": "zafeer.hashir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zafeerhashir/Center-Slider-Horizontal-Picker/issues"
+  },
+  "homepage": "https://github.com/zafeerhashir/Center-Slider-Horizontal-Picker#readme"
+}
