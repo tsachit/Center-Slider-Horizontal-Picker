@@ -40,6 +40,7 @@ const App = () => {
           data={data}
           alwaysBounceHorizontal={false}
           onSelectedIndex={(index) => setselectIndex(index)}
+          showsHorizontalScrollIndicator={false}
           renderItem={(item, index) =>
             <View
               key={index}
