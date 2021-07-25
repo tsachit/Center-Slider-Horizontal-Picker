@@ -1,6 +1,6 @@
 {
   "name": "center-slider-horizontal-picker",
-  "version": "1.0.2",
+  "version": "1.0.6",
   "description": "its a slider horizontal picker which center selecting item",
   "main": "index.js",
   "directories": {
