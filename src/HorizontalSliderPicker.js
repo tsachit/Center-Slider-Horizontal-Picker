@@ -115,8 +115,8 @@ const HorizontalSliderPicker = ({ data, renderItem, onSelectedIndex, initialInde
   
   useEffect(() => {
     // don't need to scrollToPosition on 0
-    if (initialIndex > 0) onPressItem(initialIndex);
-  }, [initialIndex]);
+    if (initialIndex > 0 && itemCoords) onPressItem(initialIndex);
+  }, [initialIndex, itemCoords]);
 
   const items = data.map((item, index) => (
     <TouchableOpacity
