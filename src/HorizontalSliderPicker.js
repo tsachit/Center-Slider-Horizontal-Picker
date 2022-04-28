@@ -34,7 +34,7 @@ const HorizontalSliderPicker = ({ data, renderItem, onSelectedIndex, initialInde
 
   const [itemCoords, setitemCoords] = useState(null)
   const [center, setCenter] = useState(null)
-  const [initialScroll, setInitialScroll] = useState(false);
+  const [initialScrollComplete, setInitialScrollComplete] = useState(initialIndex === 0);
   const [onScrollNativeEvent, setOnScrollNativeEvent] = useState(null)
   const [onLayoutScrollView, setOnLayoutScrollView] = useState(null)
   const [edgersWidth, setEdgersWidth] = useState(null)
@@ -59,8 +59,10 @@ const HorizontalSliderPicker = ({ data, renderItem, onSelectedIndex, initialInde
 
   useEffect(() => {
     // don't need to scrollToPosition on 0
-    if (initialIndex > 0 && itemCoords && onLayoutScrollView?.width) onPressItem(initialIndex)
-    if (!initialScroll) setInitialScroll(true)
+    if (!initialScrollComplete && initialIndex > 0 && itemCoords && onLayoutScrollView?.width) {
+      onPressItem(initialIndex)
+      setInitialScrollComplete(true)
+    }
   },[initialIndex, itemCoords, onLayoutScrollView])
   
 
