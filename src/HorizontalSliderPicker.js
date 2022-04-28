@@ -53,7 +53,9 @@ const HorizontalSliderPicker = ({ data, renderItem, onSelectedIndex, initialInde
 
   useEffect(() => {
     memoizedCallback()  
-  },[itemCoords, onLayoutScrollView])
+    // don't need to scrollToPosition on 0
+    if (initialIndex > 0 && itemCoords) onPressItem(initialIndex);
+  },[initialIndex, itemCoords, onLayoutScrollView])
 
 
   const memoizedCallback = useCallback(() => {
@@ -112,11 +114,6 @@ const HorizontalSliderPicker = ({ data, renderItem, onSelectedIndex, initialInde
       setitemCoords(_itemCoords)
     }
   }
-  
-  useEffect(() => {
-    // don't need to scrollToPosition on 0
-    if (initialIndex > 0 && itemCoords) onPressItem(initialIndex);
-  }, [initialIndex, itemCoords]);
 
   const items = data.map((item, index) => (
     <TouchableOpacity
