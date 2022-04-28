@@ -53,9 +53,14 @@ const HorizontalSliderPicker = ({ data, renderItem, onSelectedIndex, initialInde
 
   useEffect(() => {
     memoizedCallback()  
-    // don't need to scrollToPosition on 0
-    if (initialIndex > 0 && itemCoords) onPressItem(initialIndex);
   },[initialIndex, itemCoords, onLayoutScrollView])
+  
+
+  useEffect(() => {
+    // don't need to scrollToPosition on 0
+    if (initialIndex > 0 && itemCoords && onLayoutScrollView?.width) onPressItem(initialIndex)
+  },[initialIndex, itemCoords, onLayoutScrollView])
+  
 
 
   const memoizedCallback = useCallback(() => {
