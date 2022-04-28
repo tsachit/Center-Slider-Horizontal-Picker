@@ -30,7 +30,7 @@ Edgers.propTypes = {
   width: PropTypes.number.isRequired
 };
 
-const HorizontalSliderPicker = ({ data, renderItem, onSelectedIndex, ...rest }) => {
+const HorizontalSliderPicker = ({ data, renderItem, onSelectedIndex, initialIndex, ...rest }) => {
 
   const [itemCoords, setitemCoords] = useState(null)
   const [center, setCenter] = useState(null)
@@ -112,7 +112,11 @@ const HorizontalSliderPicker = ({ data, renderItem, onSelectedIndex, ...rest }) 
       setitemCoords(_itemCoords)
     }
   }
-
+  
+  useEffect(() => {
+    // don't need to scrollToPosition on 0
+    if (initialIndex > 0) onPressItem(initialIndex);
+  }, [initialIndex]);
 
   const items = data.map((item, index) => (
     <TouchableOpacity
@@ -146,10 +150,12 @@ const HorizontalSliderPicker = ({ data, renderItem, onSelectedIndex, ...rest }) 
 Edgers.propTypes = {
   data: PropTypes.array.isRequired,
   renderItem: PropTypes.func.isRequired,
+  initialIndex: PropTypes.number,
   onSelectedIndex: PropTypes.func.isRequired,
 };
 
-
-
+Edgers.defaultProps = {
+  initialIndex: 0,
+};
 
 export default HorizontalSliderPicker;
